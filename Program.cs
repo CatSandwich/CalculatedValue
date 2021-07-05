@@ -16,7 +16,7 @@ namespace CalculatedValue
             // Example with random (to demonstrate use case of CalculatedValue<double> vs. double)
             var cv2 = new CalculatedValue<double>(2, 0d); // 0d
             var r = new Random();
-            cv2[0] += (ref double val) => val += r.NextDouble() * 5d; // 0d-5d
+            cv2[0] += (ref double val) => val += r.NextDouble() * 5; // 0d-5d
             cv2[1] += (ref double val) => val *= 2;                   // 0d-10d
             Console.WriteLine(cv2.Calculate().ToString("F2"));
 
@@ -25,7 +25,7 @@ namespace CalculatedValue
             cv3[0] += (ref Example val) => val.Value += 2; // 7
             cv3[0] += (ref Example val) => val.Value += 3; // 10
             cv3[1] += (ref Example val) => val.Value *= 3; // 30
-            //Console.WriteLine(cv3.Calculate().Value);
+            Console.WriteLine(cv3.Calculate().Value);
         }
     }
     
